@@ -16,6 +16,11 @@ class RecentJitterChartWidget extends ChartWidget
 
     public ?string $filter = '24h';
 
+    public function mount(): void
+    {
+        $this->filter = config('app.chart_default_filter');
+    }
+
     protected function getPollingInterval(): ?string
     {
         return config('speedtest.dashboard_polling');
